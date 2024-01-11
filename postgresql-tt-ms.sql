@@ -437,8 +437,56 @@
     -- "Tuvalu"	"Constitutional Monarchy"	1978
 
 -- Which fifteen countries have the lowest life expectancy? (HINT: starts with Zambia, ends with Sierra Leonne)
+    --     "Zambia"	37.2
+    -- "Mozambique"	37.5
+    -- "Malawi"	37.6
+    -- "Zimbabwe"	37.8
+    -- "Angola"	38.3
+    -- "Botswana"	39.3
+    -- "Rwanda"	39.3
+    -- "Swaziland"	40.4
+    -- "Niger"	41.3
+    -- "Namibia"	42.5
+    -- "Uganda"	42.9
+    -- "Central African Republic"	44
+    -- "Cï¿½te dï¿½Ivoire"	45.2
+    -- "Ethiopia"	45.2
+    -- "Sierra Leone"	45.3
+
+    --SELECT name, lifeexpectancy
+    -- FROM country
+    -- order by lifeexpectancy asc
+    -- LIMIT 15
+
 -- Which fifteen countries have the highest life expectancy? (HINT: starts with Andorra, ends with Spain)
+    -- "Andorra"	83.5
+    -- "Macao"	81.6
+    -- "San Marino"	81.1
+    -- "Japan"	80.7
+    -- "Singapore"	80.1
+    -- "Australia"	79.8
+    -- "Switzerland"	79.6
+    -- "Sweden"	79.6
+    -- "Hong Kong"	79.5
+    -- "Canada"	79.4
+    -- "Iceland"	79.4
+    -- "Gibraltar"	79
+    -- "Italy"	79
+    -- "Cayman Islands"	78.9
+    -- "Spain"	78.8
+
+    -- SELECT name, lifeexpectancy
+    -- FROM country
+    -- WHERE 
+    --     lifeexpectancy IS NOT NULL
+    -- order by lifeexpectancy desc
+
+    -- LIMIT 15
+
+
 -- Which five countries have the lowest population density (density = population / surfacearea)? (HINT: starts with Greenland)
+
+
 -- Which countries have the highest population density?(HINT: starts with Macao)
 -- Which is the smallest country by area? (HINT: .4)
 -- Which is the smallest country by population? (HINT: 50)?

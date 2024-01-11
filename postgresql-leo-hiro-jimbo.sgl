@@ -2,25 +2,102 @@ Challenges
 Be sure to copy the queries in the file in the database repository for later reference.
 
 What is the population of the US? (HINT: 278357000)
+    Select name, continent, population
+    From Country
+    where population = 278357000
+
 What is the area of the US? (HINT: 9.36352e+06)
+    Select name, continent, population, surfacearea
+    From Country
+    where surfacearea = 9.36352e+06
+
 Which countries gained their independence before 1963?
+    Select name, country, indepyear
+    From Country
+    where indepyear < 1963
 List the countries in Africa that have a population smaller than 30,000,000 and a life expectancy of more than 45? (HINT: 37 entries)
+    Select name, continent, lifeexpectancy, population
+    From Country
+    where lifeexpectancy > 45
+    and population < 3e7
+    and continent = 'Africa'    
 Which countries are something like a republic? (HINT: Are there 122 or 143?)
+    Select name, governmentform, country
+    From Country
+    where governmentform like '%Republic'
 Which countries are some kind of republic and achieved independence after 1945? (HINT: 92 entries)
+    Select name, governmentform, country, indepyear
+    From Country
+    where governmentform like '%Republic'
+    and indepyear > 1945    
 Which countries achieved independence after 1945 and are not some kind of republic? (HINT: 27 entries)
+    Select name, governmentform, country, indepyear
+    From Country
+    where governmentform not like '%Republic'
+    and indepyear > 1945
 Which fifteen countries have the lowest life expectancy? (HINT: starts with Zambia, ends with Sierra Leonne)
+    Select name, country, lifeexpectancy
+    From Country
+    where lifeexpectancy < 45.5
+    order by lifeexpectancy
 Which fifteen countries have the highest life expectancy? (HINT: starts with Andorra, ends with Spain)
+    Select name, lifeexpectancy
+    From country
+    where lifeexpectancy >= 78.8
+    order by lifeexpectancy 
 Which five countries have the lowest population density (density = population / surfacearea)? (HINT: starts with Greenland)
+
 Which countries have the highest population density?(HINT: starts with Macao)
+
+SELECT name, population,(the lower equation needs to be up here)
+gnp / population AS gnp_per_capita   <-- alias
+FROM country
+WHERE population > 1e+8;
+    Select name, surfacearea, population, population/surfacearea as pop_density
+    From country
+    order by pop_density desc
+
 Which is the smallest country by area? (HINT: .4)
+    Select name, country, surfacearea
+    from country
+    order by surfacearea
+
 Which is the smallest country by population? (HINT: 50)?
+    Select name, country, population
+    from country
+    order by population
+
 Which is the biggest country by area? (HINT: 1.70754e+07)
+    Select name, country, surfacearea
+    from country
+    order by surfacearea
+
 Which is the biggest country by population? (HINT: 1277558000)
+    Select name, country, population
+    from country
+    order by population
 Who is the most influential head of state measured by population? (HINT: Jiang Zemin)
+    Select name, headofstate, population
+    from country
+    order by population
 Of the countries with the top 10 gnp, which has the smallest population? (HINT: Canada)
+    Select name, gnp, population
+    from country
+    where gnp > 500000
+    order by population desc
+
 Of the 10 least populated countries with permanent residents (a non-zero population), which has the largest surfacearea? (HINT: Svalbard and Jan Mayen)
+    Select name, population, surfacearea
+    from country
+    where population < 7000
+    and population > 0
+    order by surfacearea desc
 Which region has the highest average gnp? (HINT: North America)
+    Select name, region, gnp
+    from country
+    order by gnp desc
 Who is the most influential head of state measured by surface area? (HINT: Elisabeth II)
+
 What is the average life expectancy for all continents?
 What are the most common forms of government? (HINT: use count(*))
 How many countries are in North America?

@@ -24,15 +24,28 @@ Add five friends and family members to the people table using the Rails console.
 
 
 Retrieve the third person in the database.
-3.2.0 :007 > Person.find(2)
+3.2.0 :007 > Person.find(3)
 
 
 Retrieve only the first name of the first person in the database.
+ Person.find(1).class.pluck(:first_name).first
 
 
 Remove the last person from the database.
+Person.last.destroy
+
 Add yourself to the people table.
+Person.create(last_name: "Balink", first_name: "Jack", phone: "555-555-5560")
+
 Retrieve all the people that have the same last name as you.
+Person.where(last_name: 'Balink')
+
 Retrieve only the first person from the list of people that have the same last name as you.
+Person.where(last_name: 'Balink').first
+
 Update the phone number of the second person in the database.
-Retrieve the last name of the third person in the database. --> -->
+3.2.0 :031 > second_person = Person.find(2)
+3.2.0 :032 > second_person.update(phone: '666-666-6666')
+
+<!-- Retrieve the last name of the third person in the database. -->
+<!-- Person.find(3).last_name -->

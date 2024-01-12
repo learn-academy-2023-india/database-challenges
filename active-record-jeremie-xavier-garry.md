@@ -17,7 +17,6 @@ $ rails g model Person first_name:string last_name:string phone:string
 $ rails db:migrate
 
 <!-- Add five friends and family members to the people table using the Rails console. -->
-
 $ rails console
 Person.create(first_name: "Friend1", last_name: "Last1", phone: "123-456-7890")
 % #<Person:0x00000001060ae180
@@ -68,7 +67,6 @@ exit
 % Retrieve all the people in the database.
 $ rails console
 Person.all
-
 <!-- [#<Person:0x000000010642c320
 %   id: 1,
 %   first_name: "Friend1",
@@ -104,86 +102,75 @@ Person.all
 %   phone: "127-456-7894",
 %   created_at: Fri, 12 Jan 2024 00:35:22.132576000 UTC +00:00,
 %   updated_at: Fri, 12 Jan 2024 00:35:22.132576000 UTC +00:00>]  -->
-
 exit
 
 <!-- Retrieve the third person in the database.  -->
-
 $ rails console
 Person.find(3)
-
+% #<Person:0x0000000111234f58
+%  id: 3,
+%  first_name: "Friend3",
+%  last_name: "Last3",
+%  phone: "123-456-7890",
+%  created_at: Fri, 12 Jan 2024 00:35:09.404178000 UTC +00:00,
+%  updated_at: Fri, 12 Jan 2024 00:35:09.404178000 UTC +00:00>  
 exit
 
 % Retrieve only the first name of the first person in the database.
 $ rails console
 Person.first.first_name
-
-<!-- #<Person:0x0000000111234f58
- id: 3,
- first_name: "Friend3",
- last_name: "Last3",
- phone: "123-456-7890",
- created_at: Fri, 12 Jan 2024 00:35:09.404178000 UTC +00:00,
- updated_at: Fri, 12 Jan 2024 00:35:09.404178000 UTC +00:00>  -->
-
+<!-- Person Load (0.8ms)  SELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT $1  [["LIMIT", 1]] => "Friend1" -->
 exit
 
 <!-- Remove the last person from the database.  -->
-
 $ rails console
 Person.last.destroy
 % #<Person:0x00000001119d7580
 % id: 5,
 % first_name: "Friend5",
 % last_name: "Last5",
-% phone: "123-456-7890",
+% phone: "127-456-7894",
 % created_at: Fri, 12 Jan 2024 00:35:22.132576000 UTC +00:00,
 % updated_at: Fri, 12 Jan 2024 00:35:22.132576000 UTC +00:00>
 exit
 
 % Add yourself to the people table.
 $ rails console
-Person.create(first_name: "YourFirstName", last_name: "YourLastName", phone: "YourPhoneNumber")
-
+Person.create(first_name: "Friend6", last_name: "Last5", phone: "128-456-7895")
 <!-- #<Person:0x0000000112c77fa0
  id: 6,
- first_name: "YourFirstName",
- last_name: "YourLastName",
- phone: "YourPhoneNumber",
+ first_name: "Friend6",
+ last_name: "Last5",
+ phone: "128-456-7895",
  created_at: Fri, 12 Jan 2024 00:49:16.830501000 UTC +00:00,
  updated_at: Fri, 12 Jan 2024 00:49:16.830501000 UTC +00:00>  -->
-
 exit
 
 <!-- Retrieve all the people that have the same last name as you. -->
-
 $ rails console
-Person.where(last_name: "YourLastName")
-% [#<Person:0x0000000112c99d80
-% id: 6,
-% first_name: "YourFirstName",
-% last_name: "YourLastName",
-% phone: "YourPhoneNumber",
-% created_at: Fri, 12 Jan 2024 00:49:16.830501000 UTC +00:00,
-% updated_at: Fri, 12 Jan 2024 00:49:16.830501000 UTC +00:00>]
+Person.where(last_name: "Last5")
+% [#<Person:0x0000000105e03c00
+% id: 7,
+% first_name: "Friend6",
+% last_name: "Last5",
+% phone: "128-456-7895",
+% created_at: Fri, 12 Jan 2024 01:04:53.584345000 UTC +00:00,
+% updated_at: Fri, 12 Jan 2024 01:04:53.584345000 UTC +00:00>] 
 exit
 
 % Retrieve only the first person from the list of people that have the same last name as you.
 $ rails console
-Person.where(last_name: "YourLastName").first
-
-<!-- #<Person:0x0000000112c9e100
- id: 6,
- first_name: "YourFirstName",
- last_name: "YourLastName",
- phone: "YourPhoneNumber",
- created_at: Fri, 12 Jan 2024 00:49:16.830501000 UTC +00:00,
- updated_at: Fri, 12 Jan 2024 00:49:16.830501000 UTC +00:00>  -->
-
+Person.where(last_name: "Last5").first
+<!-- #<Person:0x0000000105de1ce0
+ id: 8,
+ first_name: "Friend6",
+ last_name: "Last5",
+ phone: "128-456-7895",
+ created_at: Fri, 12 Jan 2024 01:08:21.250537000 UTC +00:00,
+ updated_at: Fri, 12 Jan 2024 01:08:21.250537000 UTC +00:00>  -->
 exit
 
 <!-- Update the phone number of the second person in the database. -->
-
 $ rails console
 person = Person.find(2)
 person.update(phone: "128-345-2178")
@@ -193,7 +180,7 @@ person.update(phone: "128-345-2178")
 % => true
 exit
 
-% Retrieve the last name of the third person in the database.
+<!-- Retrieve the last name of the third person in the database. -->
 $ rails console
 Person.find(3).last_name
 % Person Load (0.5ms) SELECT "people".\* FROM "people" WHERE "people"."id" = $1 LIMIT $2 [["id", 3], ["LIMIT", 1]]

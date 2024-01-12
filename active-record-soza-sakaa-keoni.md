@@ -22,11 +22,17 @@ Add yourself to the people table.
 person.create but this time with my info...
 
 Retrieve all the people that have the same last name as you.
+Person.where(last_name: 'Kamakawiwo'ole')
+
 Retrieve only the first person from the list of people that have the same last name as you.
+Person.where(last_name: 'Kamakawiwo'ole').first
+
 Update the phone number of the second person in the database.
+3.2.0 :031 > second_person = Person.find(2)
+3.2.0 :032 > second_person.update(phone: '808-378-3889')
 
-Retrieve the last name of the third person in the database. -->
-
+Retrieve the last name of the third person in the database.
+Person.find(3).last_name -->
 
 ## To copy an dpaste later
 3.2.0 :001 > Person.create(last_name: "Kamakawiwo'ole", first_name: "Ka'wika",
@@ -43,4 +49,3 @@ phone:"808-867-3475")
 
 3.2.0 :005 > Person.create(last_name: "Ho'okele ", first_name: "Leilani",
 phone:"808-837-7385")
-

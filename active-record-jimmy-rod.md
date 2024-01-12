@@ -28,14 +28,42 @@ Retrieve the third person in the database.
 > Person.find 3
 
 Retrieve only the first name of the first person in the database.
-> 
+> Person.where(last_name:"Jimmy")
 
 Remove the last person from the database.
+> Jimmy = Person.find 6
+> Jimmy.destroy
+
 Add yourself to the people table.
+> Person.create(first_name: 'Rod', last_name: 'V', phone: '9166199169')
+
 Retrieve all the people that have the same last name as you.
+> Person.where(last_name:"V")
+
 Retrieve only the first person from the list of people that have the same last name as you.
+> Person.where(last_name:"F")
+
 Update the phone number of the second person in the database.
+> scully = Person.find(2)
+> scully
+> scully.update(phone: 3216540987)
+
 Retrieve the last name of the third person in the database.
+> Person.where(last_name:"Sierra")
+
 🏔 Stretch Goals
 Update all the family members with the same last name as you to have the same phone number as you.
+> scully = Person.find(1)
+> scully
+> scully.update(phone: 9166199169)
+
 Remove all family members that do not have your last name.
+> Billy = Person.find(2)
+> Billy.destroy
+> John = Person.find(3)
+> John.destroy
+> Oscar = Person.find(4)
+> Oscar.destroy
+> Hugh = Person.find(5)
+> Hugh.destroy
+

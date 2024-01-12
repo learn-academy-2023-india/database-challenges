@@ -19,9 +19,12 @@ Remove the last person from the database.
 this one i was able to guess by myself and somehow it turned out ok. I just typed in Person.last cause i saw that somewhere and i know .destroy works so i wondered if i could add it to the end as Person.last.destroy and from what I can tell using Person.all as my next command it shows the person at id 5 has now been deleted.
 
 Add yourself to the people table.
+person.create but this time with my info...
+
 Retrieve all the people that have the same last name as you.
 Retrieve only the first person from the list of people that have the same last name as you.
 Update the phone number of the second person in the database.
+
 Retrieve the last name of the third person in the database. -->
 
 

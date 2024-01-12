@@ -1,7 +1,5 @@
 <!-- Challenge: Rolodex
 Note: A rolodex is a collection of paper cards that contain people's names and contact information. They were a common household and office item in the pre-digital age. -->
-
-Task 1: Set up the Rails application and database
 $ cd Desktop/active-record
 $ rails db:create
 
@@ -12,7 +10,6 @@ All tasks should be performed in order as listed below.
 ✔️ Acceptance Criteria
 The rolodex application data should be managed by a PostgreSQL database in a Rails application.
  The model should be called Person with first_name, last_name, and phone attributes. All data types should be strings. -->
-
 $ rails g model Person first_name:string last_name:string phone:string
 $ rails db:migrate
 
@@ -26,6 +23,7 @@ Person.create(first_name: "Friend1", last_name: "Last1", phone: "123-456-7890")
 % phone: "123-456-7890",
 % created_at: Fri, 12 Jan 2024 00:30:48.853242000 UTC +00:00,
 % updated_at: Fri, 12 Jan 2024 00:30:48.853242000 UTC +00:00>
+exit
 
 Person.create(first_name: "Friend2", last_name: "Last2", phone: "124-456-7891")
 % #<Person:0x0000000106087bc0
@@ -35,6 +33,7 @@ Person.create(first_name: "Friend2", last_name: "Last2", phone: "124-456-7891")
 % phone: "124-456-7891",
 % created_at: Fri, 12 Jan 2024 00:35:03.615466000 UTC +00:00,
 % updated_at: Fri, 12 Jan 2024 00:35:03.615466000 UTC +00:00>
+exit
 
 Person.create(first_name: "Friend3", last_name: "Last3", phone: "125-456-7892")
 % #<Person:0x000000010646af08
@@ -44,6 +43,7 @@ Person.create(first_name: "Friend3", last_name: "Last3", phone: "125-456-7892")
 % phone: "125-456-7892",
 % created_at: Fri, 12 Jan 2024 00:35:09.404178000 UTC +00:00,
 % updated_at: Fri, 12 Jan 2024 00:35:09.404178000 UTC +00:00>
+exit
 
 Person.create(first_name: "Friend4", last_name: "Last4", phone: "126-456-7893")
 % #<Person:0x0000000106347e50
@@ -53,6 +53,7 @@ Person.create(first_name: "Friend4", last_name: "Last4", phone: "126-456-7893")
 % phone: "126-456-7893",
 % created_at: Fri, 12 Jan 2024 00:35:16.438619000 UTC +00:00,
 % updated_at: Fri, 12 Jan 2024 00:35:16.438619000 UTC +00:00>
+exit
 
 Person.create(first_name: "Friend5", last_name: "Last5", phone: "127-456-7894")
 % #<Person:0x0000000106407818
